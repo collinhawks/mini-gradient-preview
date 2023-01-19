@@ -2,6 +2,7 @@
   "name": "mini-gradient-preview",
   "displayName": "Mini Gradient Preview",
   "icon":"https://raw.githubusercontent.com/Vicky-Raj/mini-gradient-preview/master/icon.png",
+  "repository": {"type": "git","url": "https://github.com/Vicky-Raj/mini-gradient-preview"},
   "description": "An extension to help visualize css graidents in editor",
   "version": "0.0.1",
   "engines": {
