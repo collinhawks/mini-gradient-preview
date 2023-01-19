@@ -31,26 +31,35 @@ function getDecoration(type:string,value:string):vscode.DecorationInstanceRender
 }
 
 //Helper functions
-function addDecorations(){
-  const editor = vscode.window.activeTextEditor;
-  if(editor)
-    decorate(editor); 
+function addDecorations(event?:vscode.TextDocumentChangeEvent){
+  const editors:readonly vscode.TextEditor[] = vscode.window.visibleTextEditors;
+  if(event){
+    editors.forEach(editor=>{
+      if(editor.document === event.document)
+        decorate(editor);
+    })
+    return;
+  }
+  editors.forEach(editor => {
+    decorate(editor);
+  });
 }
 
 function removeDecorations(){
-  const editor = vscode.window.activeTextEditor;
-  if(editor)
+  const editors:readonly vscode.TextEditor[] = vscode.window.visibleTextEditors;
+  editors.forEach(editor=>{
     editor.setDecorations(noDecorationType,[]);
+  })   
 }
 
 function showGradients(){
   hideGradients();
   addDecorations();
-  textEditorEvent = vscode.window.onDidChangeActiveTextEditor(e => {
+  textEditorEvent = vscode.window.onDidChangeVisibleTextEditors(e => {
     addDecorations();
   });
 	textDocEvent = vscode.workspace.onDidChangeTextDocument(e => {
-	addDecorations();
+	  addDecorations(e);
   });
 
 }
@@ -139,7 +148,7 @@ function decorate(editor:vscode.TextEditor) {
           value += sourceCodeArr[subline][i]
         }
       }
-	//Adds the preview to the decorations array
+	    //Adds the preview to the decorations array
       let range:vscode.Range = new vscode.Range(
         new vscode.Position(line, matches[match].index as number),
         new vscode.Position(line, matches[match].index as number)
