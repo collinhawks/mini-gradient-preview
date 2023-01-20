@@ -11,7 +11,6 @@ const WORKSPACE_SECTION = "mini-gradient-preview"
 const noDecorationType:vscode.TextEditorDecorationType = vscode.window.createTextEditorDecorationType({});
 
 
-
 //returns dynamic decoration based on font size
 function getDecoration(type:string,value:string):vscode.DecorationInstanceRenderOptions{
   const fontSize = parseFloat(vscode.workspace.getConfiguration().get('editor.fontSize') as string);
