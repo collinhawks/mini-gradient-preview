@@ -1,13 +1,13 @@
 {
   "name": "mini-gradient-preview",
-  "displayName": "Mini Gradient Preview",
+  "displayName": "Mini Gradient Preview Remix",
   "publisher": "Vicky's Lab",
   "icon": "icon.png",
   "repository": {
     "type": "git",
     "url": "https://github.com/collinhawks/mini-gradient-preview.git"
   },
-  "description": "An extension to help visualize css graidents in editor",
+  "description": "An extension to help visualize css graidents in editor, but smaller",
   "version": "0.0.1",
   "engines": {
     "vscode": "^1.102.0"
