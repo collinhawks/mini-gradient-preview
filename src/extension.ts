@@ -26,7 +26,7 @@ function getDecoration(type:string,value:string):vscode.DecorationInstanceRender
       border: "1px solid white",
       borderRadius: "3px",
     }
-  }
+  } as vscode.DecorationInstanceRenderOptions;
 
 }
 
