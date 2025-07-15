@@ -23,9 +23,7 @@ function getDecoration(type:string,value:string):vscode.DecorationInstanceRender
       width: `${size}px`,
       margin: `0px 4px -${bottom}px 1px`,
       backgroundColor: `background-color: transparent; background-image: ${type+value};`,
-      border: "1px solid white",
-      display: "inline-block", // Ensures it's a square block
-      verticalAlign: "middle", // Optional: aligns with text
+      border: "1px solid white"
     }
   }
 
