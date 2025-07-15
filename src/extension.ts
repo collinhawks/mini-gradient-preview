@@ -14,16 +14,18 @@ const noDecorationType:vscode.TextEditorDecorationType = vscode.window.createTex
 //returns dynamic decoration based on font size
 function getDecoration(type:string,value:string):vscode.DecorationInstanceRenderOptions{
   const fontSize = parseFloat(vscode.workspace.getConfiguration().get('editor.fontSize') as string);
-  let width:number = 50.0 * (fontSize/14)
+  let size:number = 32.0 * (fontSize/14)
   let bottom:number = 4 * (fontSize/14)
   return {
     before:{
       contentText:"",
-      height: "90%",
-      width: `${width}px`,
+      height: `${size}px`,
+      width: `${size}px`,
       margin: `0px 4px -${bottom}px 1px`,
       backgroundColor: `background-color: transparent; background-image: ${type+value};`,
-      border: "1px solid white"
+      border: "1px solid white",
+      display: "inline-block", // Ensures it's a square block
+      verticalAlign: "middle", // Optional: aligns with text
     }
   }
 
